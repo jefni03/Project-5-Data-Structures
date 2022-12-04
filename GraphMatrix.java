@@ -61,4 +61,6 @@ public class GraphMatrix<E>{
 	public int size(){
 		return labels.length;
 	}
+
+	//still need to add breadthfirst and depthfirst transversal methods
 }
