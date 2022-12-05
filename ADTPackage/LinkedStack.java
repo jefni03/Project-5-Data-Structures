@@ -1,4 +1,4 @@
-package ADTs;
+package ADTPackage;
 import java.util.EmptyStackException;
 
 public class LinkedStack<T> implements StackInterface<T>

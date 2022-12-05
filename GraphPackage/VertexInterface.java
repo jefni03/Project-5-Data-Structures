@@ -1,7 +1,10 @@
-package graph;
+package GraphPackage;
 import java.util.Iterator;
 /**
    An interface for a vertex in a graph.
+   @author Frank M. Carrano
+   @author Timothy M. Henry
+   @version 5.0
 */
 public interface VertexInterface<T>
 {

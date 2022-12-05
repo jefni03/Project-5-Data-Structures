@@ -1,9 +1,14 @@
-package graph;
+package GraphPackage;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
-import ADTs.*; // Classes that implement various ADTs
+
+import ADTPackage.*;
+import ADTPackage.List.ListWithIteratorInterface;
 /**
- A class of vertices for a graph.
+   A class of vertices for a graph.
+   @author Frank M. Carrano
+   @author Timothy M. Henry
+   @version 5.0
  */
 class Vertex<T> implements VertexInterface<T>
 {

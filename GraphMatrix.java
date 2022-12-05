@@ -1,5 +1,5 @@
-package graph;
-import ADTs.*;
+
+import ADTPackage.*;
 /**
  * Adjacency matrix implementation of a graph
  */
