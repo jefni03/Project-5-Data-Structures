@@ -1,3 +1,5 @@
+import java.util.NoSuchElementException;
+
 /**
    A class that implements a queue of objects by using
    a chain of linked nodes that has both head and tail references.
@@ -36,7 +38,7 @@ public final class LinkedQueue<T> implements QueueInterface<T>
 
 	public T getFront(){
 		if(isEmpty()){
-			throw new EmptyQueueException();
+			throw new NoSuchElementException();
 		}
 		else{
 			return firstNode.getData();
