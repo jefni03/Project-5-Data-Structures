@@ -1,9 +1,7 @@
 package GraphPackage;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
-
-import ADTPackage.*;
-import ADTPackage.List.ListWithIteratorInterface;
+import ADTPackage.List.*;
 /**
    A class of vertices for a graph.
    @author Frank M. Carrano
