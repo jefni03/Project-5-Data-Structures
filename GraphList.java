@@ -1,12 +1,8 @@
 
 import java.util.Iterator;
-
-import ADTPackage.*;
 import ADTPackage.Dictionary.UnsortedLinkedDictionary;
-import ADTPackage.Queue.LinkedQueue;
-import ADTPackage.Queue.QueueInterface;
-import ADTPackage.Stack.LinkedStack;
-import ADTPackage.Stack.StackInterface;
+import ADTPackage.Queue.*;
+import ADTPackage.Stack.*;
 import GraphPackage.*;
 /**
    A class that implements the ADT directed graph.
