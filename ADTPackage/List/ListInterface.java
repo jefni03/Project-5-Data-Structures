@@ -2,9 +2,7 @@ package ADTPackage.List;
 
 /** An interface for the ADT list.
     Entries in a list have positions that begin with 1.
-    @author Frank M. Carrano
-    @author Timothy M. Henry
-    @version 5.0
+
 */
 public interface ListInterface<T>
 {

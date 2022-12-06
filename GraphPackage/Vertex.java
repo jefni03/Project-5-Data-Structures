@@ -4,9 +4,7 @@ import java.util.NoSuchElementException;
 import ADTPackage.List.*;
 /**
    A class of vertices for a graph.
-   @author Frank M. Carrano
-   @author Timothy M. Henry
-   @version 5.0
+
  */
 public class Vertex<T> implements VertexInterface<T>
 {
