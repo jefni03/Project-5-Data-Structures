@@ -20,5 +20,5 @@ public interface GraphAlgorithmsInterface<T>
        @return  A queue of labels of the vertices in the traversal, with
                 the label of the origin vertex at the queue's front. */
    public QueueInterface<T> getDepthFirstTraversal(T origin);
-
+}
 
