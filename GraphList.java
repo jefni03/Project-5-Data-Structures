@@ -23,6 +23,13 @@ public class GraphList<T> implements GraphInterface<T>
 	} // end default constructor
 
 
+	public boolean addVertex(T vertexLabel)
+	{
+		VertexInterface<T> addOutcome = vertices.add(vertexLabel, new Vertex<>(vertexLabel));
+        	return addOutcome == null;
+	}
+
+
 	public boolean addEdge(T begin, T end, double edgeWeight)
 	{
 	   boolean result = false;
