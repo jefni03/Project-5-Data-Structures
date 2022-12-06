@@ -159,11 +159,6 @@ public class UnsortedLinkedDictionary<K, V> implements DictionaryInterface<K, V>
             return value;
         }
 
-        /*private void setNextNode(Node<K, V> nextNode)
-        {
-            next = nextNode;
-        } // end setNextNode */
-
     }
 
     private class KeyIterator implements Iterator<K>
