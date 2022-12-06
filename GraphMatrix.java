@@ -1,5 +1,5 @@
 
-import ADTPackage.*;
+import ADTPackage.Queue.*;
 /**
  * Adjacency matrix implementation of a graph
  */
