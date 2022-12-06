@@ -94,7 +94,7 @@ public class GraphList<T> implements GraphInterface<T>
 	   Iterator<VertexInterface<T>> vertexIterator = vertices.getValueIterator();
 	   while (vertexIterator.hasNext())
 	   {
-		  VertexInterface<T> nextVertex = VertexIterator.next();
+		  VertexInterface<T> nextVertex = vertexIterator.next();
 		  nextVertex.unvisit();
 		  nextVertex.setCost(0);
 		  nextVertex.setPredecessor(null);
