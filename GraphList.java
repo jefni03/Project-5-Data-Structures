@@ -2,6 +2,10 @@
 import java.util.Iterator;
 
 import ADTPackage.*;
+import ADTPackage.Queue.LinkedQueue;
+import ADTPackage.Queue.QueueInterface;
+import ADTPackage.Stack.LinkedStack;
+import ADTPackage.Stack.StackInterface;
 import GraphPackage.VertexInterface;
 /**
    A class that implements the ADT directed graph.
