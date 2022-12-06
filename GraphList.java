@@ -2,6 +2,7 @@
 import java.util.Iterator;
 
 import ADTPackage.*;
+import ADTPackage.Dictionary.UnsortedLinkedDictionary;
 import ADTPackage.Queue.LinkedQueue;
 import ADTPackage.Queue.QueueInterface;
 import ADTPackage.Stack.LinkedStack;
@@ -12,12 +13,12 @@ import GraphPackage.*;
 */
 public class GraphList<T> implements GraphInterface<T>
 {
-	private DictionaryInterface<T, VertexInterface<T>> vertices;
+	private UnsortedLinkedDictionary<T, VertexInterface<T>> vertices;
 	private int edgeCount;
 	
 	public GraphList()
 	{
-		vertices = new LinkedDictionary<>();
+		vertices = new UnsortedLinkedDictionary<>();
 		edgeCount = 0;
 	} // end default constructor
 
