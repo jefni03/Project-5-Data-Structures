@@ -23,15 +23,10 @@ public class GraphList<T> implements GraphInterface<T>
 	} // end default constructor
 
 
-	public boolean addVertex(T vertexLabelT)
+	public boolean addVertex(T vertexLabel)
 	{
-		boolean added = false;
-		if (vertices.contains(vertexLabelT) == false)
-		{
-			added = vertices.add(vertexLabelT);
-			return true;
-		}
-		return added;
+		VertexInterface<T> addOutcome = vertices.add(vertexLabel, new Vertex<>(vertexLabel));
+        	return addOutcome == null;
 	}
 
 
