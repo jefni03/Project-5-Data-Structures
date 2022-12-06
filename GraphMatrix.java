@@ -1,5 +1,6 @@
 
 import ADTPackage.Queue.*;
+import ADTPackage.Stack.*;
 /**
  * Adjacency matrix implementation of a graph
  */
@@ -36,14 +37,14 @@ public class GraphMatrix<E>{
 		int i;
 		int count = 0;
 		int[] answer;
-		for(int i=0; i<labels.length; i++){
+		for(i=0; i<labels.length; i++){
 			if(edges[vertex][i]){
 				count++;
 			}
 		}
 		answer = new int[count];
 		count = 0;
-		for(int i=0; i<labels.length; i++){
+		for(i=0; i<labels.length; i++){
 			if(edges[vertex][i]){
 				answer[count] = i;
 				count++;
@@ -89,10 +90,10 @@ public class GraphMatrix<E>{
 
     }
 
-    public LinkedQueue getBreadthFirstTraversal(int origin) {
+    public LinkedQueue<Integer> getBreadthFirstTraversal(int origin) {
        
-        LinkedQueue traversalOrder = new LinkedQueue();             
-        LinkedQueue vertexQueue = new LinkedQueue();                
+        LinkedQueue<Integer> traversalOrder = new LinkedQueue<Integer>();             
+        LinkedQueue<Integer> vertexQueue = new LinkedQueue<Integer>();                
         int visitedCounter = 0;
         int[] visited = new int[labels.length];
 
@@ -127,10 +128,10 @@ public class GraphMatrix<E>{
 
 
 
-     public LinkedQueue getDepthFirstTraversal(int origin) {
+     public LinkedQueue<Integer> getDepthFirstTraversal(int origin) {
 
-        LinkedQueue traversalOrder = new LinkedQueue();        
-        LinkedStack vertexStack = new LinkedStack();            
+        LinkedQueue<Integer> traversalOrder = new LinkedQueue<Integer>();        
+        LinkedStack<Integer> vertexStack = new LinkedStack<Integer>();            
         
         int visitedCounter = 0;                                 
         int[] visited = new int[labels.length];                 
