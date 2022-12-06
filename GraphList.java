@@ -23,6 +23,18 @@ public class GraphList<T> implements GraphInterface<T>
 	} // end default constructor
 
 
+	public boolean addVertex(T vertexLabelT)
+	{
+		boolean added = false;
+		if (vertices.contains(vertexLabelT) == false)
+		{
+			added = vertices.add(vertexLabelT);
+			return true;
+		}
+		return added;
+	}
+
+
 	public boolean addEdge(T begin, T end, double edgeWeight)
 	{
 	   boolean result = false;
