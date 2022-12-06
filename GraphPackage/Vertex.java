@@ -8,7 +8,7 @@ import ADTPackage.List.*;
    @author Timothy M. Henry
    @version 5.0
  */
-class Vertex<T> implements VertexInterface<T>
+public class Vertex<T> implements VertexInterface<T>
 {
    private T label;
    private ListWithIteratorInterface<Edge> edgeList; // Edges to neighbors
