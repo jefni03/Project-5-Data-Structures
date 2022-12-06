@@ -36,5 +36,5 @@
 ### Jeffrey: ADTsPackage, driver
 ### Justin: ADTsPackage, driver, GraphPackage
 ### Peter: ADTsPackage, driver
-## _Member Contributions_
-### Features: Both adjacency matrix and adjacency list implementations of graph
+## _Features_
+### Both adjacency matrix and adjacency list implementations of graph
