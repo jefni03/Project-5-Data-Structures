@@ -3,9 +3,6 @@ import java.util.Iterator;
 /**
    An interface for a dictionary with distinct search keys.
    Search keys and associated values are not null.
-   @author Frank M. Carrano
-   @author Timothy M. Henry
-   @version 5.0
 */
 public interface DictionaryInterface<K, V>
 {

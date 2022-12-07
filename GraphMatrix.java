@@ -1,5 +1,6 @@
 
-import ADTPackage.*;
+import ADTPackage.Queue.*;
+import ADTPackage.Stack.*;
 /**
  * Adjacency matrix implementation of a graph
  */
@@ -11,59 +12,13 @@ public class GraphMatrix<E>{
 	 * Constructs graph of n vertices
 	 * @param n number of vertices
 	 */
-	public GraphMatrix(int n){
+	public GraphMatrix(int n)
+    {
 		edges = new boolean[n][n];
 		labels = (E[]) new Object[n];
 	}
-
-	/**
-	 * @param vertex an int representation of vertex
-	 * @return label of vertex
-	 */
-	public E getLabel(int vertex){
-		return labels[vertex];
-	}
-
-	public boolean isEdge(int source, int target){
-		return edges[source][target];
-	}
-
-	public void addEdge(int source, int target){
-		edges[source][target] = true;
-	}
-
-	public int[] neighbors(int vertex){
-		int i;
-		int count = 0;
-		int[] answer;
-		for(int i=0; i<labels.length; i++){
-			if(edges[vertex][i]){
-				count++;
-			}
-		}
-		answer = new int[count];
-		count = 0;
-		for(int i=0; i<labels.length; i++){
-			if(edges[vertex][i]){
-				answer[count] = i;
-				count++;
-			}
-		}
-		return answer;
-	}
-
-	public void removeEdge(int source, int target){
-		edges[source][target] = false;
-	}
-
-	public void setLabel(int vertex, E newLabel){
-		labels[vertex] = newLabel;
-	}
-
-	public int getSize(){
-		return labels.length;
-	}
-	public void printGraph() {
+    public void printGraph() 
+    {
 
         for (int k = 0; k < labels.length; k++) {
             
@@ -86,12 +41,85 @@ public class GraphMatrix<E>{
         }
 
     }
+	/**
+	 * @param vertex an int representation of vertex
+	 * @return label of vertex
+	 */
+	public E getLabel(int vertex)
+    {
+		return labels[vertex];
+	}
 
-    public LinkedQueue getBreadthFirstTraversal(int origin) {
+	public boolean isEdge(int source, int target)
+    {
+		return edges[source][target];
+	}
+
+	public void addEdge(int source, int target)
+    {
+		edges[source][target] = true;
+	}
+
+	public int[] neighbors(int vertex)
+    {
+		int i;
+		int count = 0;
+		int[] answer;
+		for(i=0; i<labels.length; i++){
+			if(edges[vertex][i]){
+				count++;
+			}
+		}
+		answer = new int[count];
+		count = 0;
+		for(i=0; i<labels.length; i++){
+			if(edges[vertex][i]){
+				answer[count] = i;
+				count++;
+			}
+		}
+		return answer;
+	}
+
+	public void removeEdge(int source, int target)
+    {
+		edges[source][target] = false;
+	}
+
+	public void setLabel(int vertex, E newLabel)
+    {
+		labels[vertex] = newLabel;
+	}
+
+	public int getSize()
+    {
+		return labels.length;
+	}
+    private void visit(int[] visitedArray, int vertex, int index) 
+    {
+
+        visitedArray[index] = vertex;
+
+    }
+    private boolean isVisited(int[] visited, int vertex) 
+    {
+        boolean result = false;
+
+        for (int i = 0; i < visited.length; i++) {
+            if (visited[i] == vertex) {
+                result = true;
+                break;
+            }
+        }
+        return result;
+        
+    }
+    public LinkedQueue<Integer> getBreadthFirstTraversal(int origin) 
+    {
        
-        LinkedQueue traversalOrder = new LinkedQueue();             
-        LinkedQueue vertexQueue = new LinkedQueue();                
-        int visitedCounter = 0;
+        LinkedQueue<Integer> traversalOrder = new LinkedQueue<Integer>();             
+        LinkedQueue<Integer> vertexQueue = new LinkedQueue<Integer>();                
+        int count = 0;
         int[] visited = new int[labels.length];
 
         traversalOrder.enqueue(origin);                            
@@ -99,38 +127,31 @@ public class GraphMatrix<E>{
 
         while (!vertexQueue.isEmpty()) {
 
-            int frontVertex = vertexQueue.dequeue();                
-            int[] neighbors = neighbors(frontVertex);               
+            int front = vertexQueue.dequeue();                
+            int[] neighbors = neighbors(front);               
             int neighborIndex = 0;                            
             while (neighborIndex != neighbors.length) {             
 
                 int nextNeighbor = neighbors[neighborIndex];
                 if (isVisited(visited,nextNeighbor) == false) {     
-                    visit(visited, nextNeighbor, visitedCounter);   
-                    visitedCounter++;                               
+                    visit(visited, nextNeighbor, count);   
+                    count+=1;                               
 
                     traversalOrder.enqueue(nextNeighbor);           
                     vertexQueue.enqueue(nextNeighbor);
 
                 } 
-                
                 neighborIndex++;
-
             }
-
-        }
-        
+        } 
         return traversalOrder;        
     }
+     public LinkedQueue<Integer> getDepthFirstTraversal(int origin) {
 
-
-
-     public LinkedQueue getDepthFirstTraversal(int origin) {
-
-        LinkedQueue traversalOrder = new LinkedQueue();        
-        LinkedStack vertexStack = new LinkedStack();            
+        LinkedQueue<Integer> traversalOrder = new LinkedQueue<Integer>();        
+        LinkedStack<Integer> vertexStack = new LinkedStack<Integer>();            
         
-        int visitedCounter = 0;                                 
+        int count = 0;                                 
         int[] visited = new int[labels.length];                 
 
         traversalOrder.enqueue(origin);
@@ -146,8 +167,8 @@ public class GraphMatrix<E>{
 
                 
                 int nextNeighbor = neighbors[getUnvisited(visited, neighbors)]; 
-                visit(visited, nextNeighbor, visitedCounter);   
-                visitedCounter++;                               
+                visit(visited, nextNeighbor, count);   
+                count++;                               
                 traversalOrder.enqueue(nextNeighbor);
                 vertexStack.push(nextNeighbor);
 
@@ -159,55 +180,35 @@ public class GraphMatrix<E>{
 
         return traversalOrder;
     }
-    
-
-    private void visit(int[] visitedArray, int vertex, int index) {
-
-        visitedArray[index] = vertex;
-
-    }
-    private boolean isVisited(int[] visited, int vertex) {
-        boolean result = false;
-
-        for (int i = 0; i < visited.length; i++) {
-            if (visited[i] == vertex) {
-                result = true;
-                break;
-            }
-        }
-        return result;
-        
-    }
 
     private  boolean hasAnUnvisited(int[] visited, int[] neighbor) {
-        boolean unvisitedExists = false;
+        boolean unvisited = false;
         
         for (int i = 0; i < neighbor.length; i++) {
             int neighborChosen = neighbor[i];
 
             if (!isVisited(visited, neighborChosen)) {
-                unvisitedExists = true;
+                unvisited = true;
             }
-
-
         }
         
-        return unvisitedExists;
+        return unvisited;
     }
-    private int getUnvisited(int[] visited, int[] neighbor) {
-        int result = 0;
+    private int getUnvisited(int[] visited, int[] neighbor) 
+    {
+        int endResult = 0;
 
-        for (int i = 0; i < neighbor.length; i++) {
+        for (int i = 0; i < neighbor.length; i++) 
+        {
             int neighborChosen = neighbor[i];
 
-            if (!isVisited(visited, neighborChosen)) {
-                result = i;
+            if (!isVisited(visited, neighborChosen)) 
+            {
+                endResult = i;
                 break;
             }
-
         }
-
-        return result;
+        return endResult;
     }
 	
 

@@ -4,9 +4,7 @@ import java.util.NoSuchElementException;
 /**
    A class that implements the ADT list by using a chain of linked nodes.
    The list has an iterator. The class is similar to LList.
-   @author Frank M. Carrano
-   @author Timothy M. Henry
-   @version 5.0
+
 */
 public class LinkedListWithIterator<T> implements ListWithIteratorInterface<T>
 {

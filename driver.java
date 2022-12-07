@@ -1,89 +1,12 @@
 import ADTPackage.Queue.*;
-import GraphPackage.*;
 
 /**
  * A class of thats tests the traversals of graphs.
  */
-
 public class driver {
-    public static void printMatrixLabels(MatrixGraph matrixGraph, LinkedQueue traversal) {
-
-        for (int i = 0; i < matrixGraph.getSize(); i++) {
-            int vertex = traversal.dequeue();
-            char label = matrixGraph.getLabel(vertex);
-
-            System.out.print(label + " ");
-        }
-
-        System.out.println();
-    }
-
-    public static void printMatrixLabels(ListGraph listGraph, LinkedQueue traversal) {
-
-        for (int i = 0; i < listGraph.getSize(); i++) {
-            int vertex = traversal.dequeue();
-            char label = listGraph.getLabel(vertex);
-
-            System.out.print(label + " ");
-        }
-
-        System.out.println();
-    }
-
-    public static void main(String []args) {
-
-        // Test code for ListGraph
-
-        ListGraph graphList = new ListGraph(9);
-
-        graphList.setLabel(0,'A');
-        graphList.setLabel(1,'B');
-        graphList.setLabel(2,'C');
-        graphList.setLabel(3,'D');
-        graphList.setLabel(4,'E');
-        graphList.setLabel(5,'F');
-        graphList.setLabel(6,'G');
-        graphList.setLabel(7,'H');
-        graphList.setLabel(8,'I');
-
-        graphList.addEdge(0,3);
-        graphList.addEdge(0,1);
-        graphList.addEdge(0,4);
-
-        graphList.addEdge(1,4);
-
-        graphList.addEdge(2,1);
-
-        graphList.addEdge(3,6);
-
-        graphList.addEdge(4,7);
-        graphList.addEdge(4,5);
-
-        graphList.addEdge(5,2);
-        graphList.addEdge(5,7);
-
-        graphList.addEdge(6,7);
-
-        graphList.addEdge(7,8);
-
-        graphList.addEdge(8,5);
-
-        //graphList.printGraph();
-
-        LinkedQueue traversalBreadth1 = graphList.getBreadthFirstTraversal(0);
-
-        printTraversalLabels_forList(graphList, traversalBreadth1);
-
-        LinkedQueue traversalDepth1 = graphList.getDepthFirstTraversal(0);
-
-        printTraversalLabels_forList(graphList, traversalDepth1);
-
-        System.out.println();
-
-        // Test code for MatrixGraph
-        
-        MatrixGraph matrixGraph = new MatrixGraph(9);
-
+    public static void main(String[] args) {
+        //                          ~~~TESTING ADJACENCY MATRIX GRAPH~~~
+        GraphMatrix<Character> matrixGraph = new GraphMatrix<Character>(9);
         matrixGraph.setLabel(0,'A');
         matrixGraph.setLabel(1,'B');
         matrixGraph.setLabel(2,'C');
@@ -94,8 +17,8 @@ public class driver {
         matrixGraph.setLabel(7,'H');
         matrixGraph.setLabel(8,'I');
 
-        matrixGraph.addEdge(0,3);
         matrixGraph.addEdge(0,1);
+        matrixGraph.addEdge(0,3);
         matrixGraph.addEdge(0,4);
 
         matrixGraph.addEdge(1,4);
@@ -116,17 +39,71 @@ public class driver {
 
         matrixGraph.addEdge(8,5);
 
-        //matrixGraph.printGraph();
+        System.out.println("~~~MATRIX GRAPH TRAVERSAL TEST~~~");
+        System.out.println("breadth first traversal:");
+        LinkedQueue<Integer> resultMatrixGraphBreadthTraversal = matrixGraph.getBreadthFirstTraversal(0);
+        printMatrixGraphTraversals(matrixGraph, resultMatrixGraphBreadthTraversal);
+        System.out.println("depth first traversal:");
+        LinkedQueue<Integer> resultMatrixGraphDepthTraversal = matrixGraph.getDepthFirstTraversal(0);
+        printMatrixGraphTraversals(matrixGraph, resultMatrixGraphDepthTraversal);
 
-        LinkedQueue traversalBreadth2 = matrixGraph.getBreadthFirstTraversal(0);
+        //                              ~~~TESTING ADJACENCY LIST GRAPH~~~
+        GraphList<Character> listGraph = new GraphList<Character>();
+        listGraph.addVertex('A');
+        listGraph.addVertex('B');
+        listGraph.addVertex('C');
+        listGraph.addVertex('D');
+        listGraph.addVertex('E');
+        listGraph.addVertex('F');
+        listGraph.addVertex('G');
+        listGraph.addVertex('H');
+        listGraph.addVertex('I');
 
-        printTraversalLabels_forMatrix(matrixGraph, traversalBreadth2);
+        listGraph.addEdge('A','B');
+        listGraph.addEdge('A','D');
+        listGraph.addEdge('A','E');
 
-        LinkedQueue traversalDepth2 = matrixGraph.getDepthFirstTraversal(0);
+        listGraph.addEdge('B','E');
 
-        printTraversalLabels_forMatrix(matrixGraph, traversalDepth2);
+        listGraph.addEdge('C','B');
 
-        
+        listGraph.addEdge('D','G');
+
+        listGraph.addEdge('E','H');
+        listGraph.addEdge('E','F');
+    
+        listGraph.addEdge('F','C');
+        listGraph.addEdge('F','H');
+    
+        listGraph.addEdge('G','H');
+    
+        listGraph.addEdge('H','I');
+    
+        listGraph.addEdge('I','F');
+
+        System.out.println("~~~LIST GRAPH TRAVERSAL TEST~~~");
+        System.out.println("breadth first traversal:");
+        QueueInterface<Character> resultListGraphBreadthTraversal = listGraph.getBreadthFirstTraversal('A');
+        printQueue(resultListGraphBreadthTraversal);
+        System.out.println("depth first traversal");
+        QueueInterface<Character> resultListGraphDepthTraversal = listGraph.getDepthFirstTraversal('A');
+        printQueue(resultListGraphDepthTraversal);
 
     }
+    public static void printMatrixGraphTraversals(GraphMatrix<Character> matrixGraph, LinkedQueue<Integer> resultTraversal) {
+
+        for (int i = 0; i < matrixGraph.getSize(); i++) {
+            char label = matrixGraph.getLabel(resultTraversal.dequeue());
+            System.out.print(label + " ");
+        }
+        System.out.println();
+    }
+
+    public static void printQueue(QueueInterface<Character> queue){
+        while(!queue.isEmpty()){
+            System.out.print(queue.dequeue() + " ");
+        }
+        System.out.println();
+    }
+
 }

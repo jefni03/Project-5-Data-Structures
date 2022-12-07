@@ -1,11 +1,8 @@
 package GraphPackage;
 import ADTPackage.Queue.*; // Classes that implement various ADTs
-import ADTPackage.Stack.*;
 /** 
    An interface of methods that process an existing graph. 
-   @author Frank M. Carrano
-   @author Timothy M. Henry
-   @version 5.0
+
 */
 public interface GraphAlgorithmsInterface<T>
 {
@@ -21,5 +18,8 @@ public interface GraphAlgorithmsInterface<T>
                 the label of the origin vertex at the queue's front. */
    public QueueInterface<T> getDepthFirstTraversal(T origin);
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 54a3f6eafee3d7337125f64497179ce4556f8278
 

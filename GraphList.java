@@ -1,12 +1,8 @@
 
 import java.util.Iterator;
-
-import ADTPackage.*;
 import ADTPackage.Dictionary.UnsortedLinkedDictionary;
-import ADTPackage.Queue.LinkedQueue;
-import ADTPackage.Queue.QueueInterface;
-import ADTPackage.Stack.LinkedStack;
-import ADTPackage.Stack.StackInterface;
+import ADTPackage.Queue.*;
+import ADTPackage.Stack.*;
 import GraphPackage.*;
 /**
    A class that implements the ADT directed graph.
@@ -21,6 +17,13 @@ public class GraphList<T> implements GraphInterface<T>
 		vertices = new UnsortedLinkedDictionary<>();
 		edgeCount = 0;
 	} // end default constructor
+
+
+	public boolean addVertex(T vertexLabel)
+	{
+		VertexInterface<T> addOutcome = vertices.add(vertexLabel, new Vertex<>(vertexLabel));
+        	return addOutcome == null;
+	}
 
 
 	public boolean addEdge(T begin, T end, double edgeWeight)
@@ -87,7 +90,7 @@ public class GraphList<T> implements GraphInterface<T>
 	   Iterator<VertexInterface<T>> vertexIterator = vertices.getValueIterator();
 	   while (vertexIterator.hasNext())
 	   {
-		  VertexInterface<T> nextVertex = VertexIterator.next();
+		  VertexInterface<T> nextVertex = vertexIterator.next();
 		  nextVertex.unvisit();
 		  nextVertex.setCost(0);
 		  nextVertex.setPredecessor(null);
