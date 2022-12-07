@@ -71,9 +71,7 @@ public class GraphMatrix<E>{
 
         }
         System.out.println();
-
-
-        for (int i = 0; i < edges.length; i++) {
+		for (int i = 0; i < edges.length; i++) {
             
             for (int j = 0; j < edges[0].length; j++) {
                 if (edges[i][j] == false) {
@@ -148,10 +146,8 @@ public class GraphMatrix<E>{
 
                 
                 int nextNeighbor = neighbors[getUnvisited(visited, neighbors)]; 
-
                 visit(visited, nextNeighbor, visitedCounter);   
                 visitedCounter++;                               
-
                 traversalOrder.enqueue(nextNeighbor);
                 vertexStack.push(nextNeighbor);
 
@@ -165,14 +161,12 @@ public class GraphMatrix<E>{
     }
     
 
-    private void visit(int[] visitedArray, int vertex , int index) {
+    private void visit(int[] visitedArray, int vertex, int index) {
 
         visitedArray[index] = vertex;
 
     }
-
     private boolean isVisited(int[] visited, int vertex) {
-
         boolean result = false;
 
         for (int i = 0; i < visited.length; i++) {
@@ -181,13 +175,11 @@ public class GraphMatrix<E>{
                 break;
             }
         }
-
         return result;
         
     }
 
     private  boolean hasAnUnvisited(int[] visited, int[] neighbor) {
-        
         boolean unvisitedExists = false;
         
         for (int i = 0; i < neighbor.length; i++) {
@@ -201,11 +193,8 @@ public class GraphMatrix<E>{
         }
         
         return unvisitedExists;
-
     }
-
     private int getUnvisited(int[] visited, int[] neighbor) {
-
         int result = 0;
 
         for (int i = 0; i < neighbor.length; i++) {
